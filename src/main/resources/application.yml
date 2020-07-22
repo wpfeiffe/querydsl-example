@@ -1,0 +1,34 @@
+
+spring:
+    application:
+        name: apt-test
+    h2:
+        console:
+            enabled: true
+    datasource:
+        url: jdbc:h2:mem:apt-test
+        username: sa
+        password:
+        driver-class-name: org.h2.Driver
+
+        hikari:
+            connection-timeout: 60000
+            maximum-pool-size: 5
+    jpa:
+        show-sql: true
+        hibernate:
+            ddl-auto: create-drop
+            dialect: org.hibernate.dialect.H2Dialect
+thymeleaf:
+    enabled: true
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
+    endpoint:
+        health:
+            show-details: always
